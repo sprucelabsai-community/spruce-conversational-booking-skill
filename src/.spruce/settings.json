@@ -1,0 +1,9 @@
+{
+  "scriptUpdater": {
+    "skipped": []
+  },
+  "installed": [
+    "skill",
+    "test"
+  ]
+}
