@@ -67,6 +67,7 @@ workflows:
             branches:
               only:
                 - master
+                - main
   upgrade:
     jobs:
       - upgrade:
