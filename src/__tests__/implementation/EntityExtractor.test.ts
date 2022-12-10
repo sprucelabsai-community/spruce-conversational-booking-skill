@@ -85,6 +85,15 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 		await this.assertServicesEqual(utterance, [beard])
 	}
 
+	@test()
+	protected static async canAddTeammates() {
+		this.extractor.addTeammate({
+			id: generateId(),
+			firstName: 'Tay',
+			lastName: 'Romero',
+		})
+	}
+
 	private static async assertServicesEqual(
 		utterance: string,
 		expected: { id: string; name: string }[]

@@ -28,15 +28,19 @@ export default class EntityExtractor {
 		const results: BookingEntities = {}
 
 		this.extractStartDateTimeMs(entities, results)
+		this.extractServices(entities, results)
 
-		const services = entities.filter((e) => e.entity === 'service') as
-			| ServiceEntity[]
+		return results
+	}
+
+	private extractServices(entities: NlpEntity[], results: BookingEntities) {
+		const services = entities.filter(
+			(e) => e.entity === 'service'
+		) as ServiceEntity[]
 
 		if (services.length > 0) {
 			results.services = services.map((s) => this.services[s.option])
 		}
-
-		return results
 	}
 
 	public addService(service: NlpService) {
@@ -67,6 +71,8 @@ export default class EntityExtractor {
 				date.getTime() - date.getTimezoneOffset() * 60 * 1000
 		}
 	}
+
+	public addTeammate(_teammate: NlpTeammate) {}
 }
 
 interface BookingEntities {
@@ -98,4 +104,10 @@ interface NlpValue {
 interface NlpService {
 	id: string
 	name: string
+}
+
+interface NlpTeammate {
+	id: string
+	firstName: string
+	lastName: string
 }
