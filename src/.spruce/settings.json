@@ -4,6 +4,10 @@
   },
   "installed": [
     "skill",
-    "test"
+    "test",
+    "schema",
+    "permission",
+    "event",
+    "sandbox"
   ]
 }
