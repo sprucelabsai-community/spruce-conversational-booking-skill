@@ -9,5 +9,19 @@
     "permission",
     "event",
     "sandbox"
-  ]
+  ],
+  "dependencies": [
+    {
+      "id": "63936b8d503c45d4b6e7ec45",
+      "namespace": "appointments"
+    }
+  ],
+  "events": {
+    "lastSync": {
+      "contractDestinationDir": "#spruce/events",
+      "schemaTypesLookupDir": "#spruce/schemas",
+      "skillEventContractTypesFile": "@sprucelabs/mercury-types/build/types/mercury.types",
+      "eventBuilderFile": "@sprucelabs/mercury-types"
+    }
+  }
 }

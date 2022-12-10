@@ -30,7 +30,7 @@ export default class EntityExtractor {
 
 		this.extractStartDateTimeMs(entities, results)
 		this.extractServices(entities, results)
-		this.extractTeammates(entities, results)
+		this.extractProviders(entities, results)
 
 		return results
 	}
@@ -41,17 +41,17 @@ export default class EntityExtractor {
 		) as ServiceEntity[]
 
 		if (services.length > 0) {
-			results.services = services.map((s) => this.services[s.option])
+			results.services = services.map((s) => this.services[s.option].id)
 		}
 	}
 
-	private extractTeammates(entities: NlpEntity[], results: BookingEntities) {
-		const teammates = entities.filter(
+	private extractProviders(entities: NlpEntity[], results: BookingEntities) {
+		const provdiers = entities.filter(
 			(e) => e.entity === 'teammate'
 		) as ServiceEntity[]
 
-		if (teammates.length > 0) {
-			results.teammates = teammates.map((s) => this.teammates[s.option])
+		if (provdiers.length > 0) {
+			results.providers = provdiers.map((s) => this.teammates[s.option].id)
 		}
 	}
 
@@ -84,7 +84,7 @@ export default class EntityExtractor {
 		}
 	}
 
-	public addTeammate(teammate: NlpTeammate) {
+	public addProvider(teammate: NlpTeammate) {
 		this.teammates[teammate.id] = teammate
 		this.manager.addNamedEntityText(
 			'teammate',
@@ -95,10 +95,10 @@ export default class EntityExtractor {
 	}
 }
 
-interface BookingEntities {
+export interface BookingEntities {
 	startDateTimeMs?: number
-	services?: NlpService[]
-	teammates?: NlpTeammate[]
+	services?: string[]
+	providers?: string[]
 }
 
 interface DateTimeEntity {

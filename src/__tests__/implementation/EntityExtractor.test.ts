@@ -90,25 +90,25 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 
 	@test()
 	protected static async canAddTeammates() {
-		const teammate = this.addTay()
+		const provider = this.addTay()
 
-		await this.assertTeammatesEqual('book a haircut with taylor', [teammate])
-		await this.assertTeammatesEqual('book anything with tylor', [teammate])
-		await this.assertTeammatesEqual('book beard trime with Taylor', [teammate])
-		await this.assertTeammatesEqual('book beard trime with romero', [teammate])
+		await this.assertProvidersEqual('book a haircut with taylor', [provider])
+		await this.assertProvidersEqual('book anything with tylor', [provider])
+		await this.assertProvidersEqual('book beard trime with Taylor', [provider])
+		await this.assertProvidersEqual('book beard trime with romero', [provider])
 	}
 
 	@test()
 	protected static async canAddMultipleTeammates() {
 		const tay = this.addTay()
-		const jimi = this.addTeammate('Jimi K.')
+		const jimi = this.addProvider('Jimi K.')
 
-		await this.assertTeammatesEqual('book a haircut with taylor or jimi', [
+		await this.assertProvidersEqual('book a haircut with taylor or jimi', [
 			tay,
 			jimi,
 		])
 
-		await this.assertTeammatesEqual(
+		await this.assertProvidersEqual(
 			'book a haircut with taylor and beard trim with jimi',
 			[tay, jimi]
 		)
@@ -116,10 +116,10 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 
 	@test()
 	protected static async canDoEverything() {
-		this.addRandomTeammate()
-		this.addRandomTeammate()
+		this.addRandomProvider()
+		this.addRandomProvider()
 		const tay = this.addTay()
-		this.addRandomTeammate()
+		this.addRandomProvider()
 
 		this.addRandomService()
 		const beard = this.addService('Beard trim')
@@ -127,7 +127,7 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 
 		const utterance = 'book a beardtrim with taylor for tomorrow at 3pm'
 		await this.assertStartDateTimeEquals(utterance, tomorrowStartOfDay(), 15, 0)
-		await this.assertTeammatesEqual(utterance, [tay])
+		await this.assertProvidersEqual(utterance, [tay])
 		await this.assertServicesEqual(utterance, [beard])
 	}
 
@@ -135,29 +135,32 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 		this.addService(generateId())
 	}
 
-	private static addRandomTeammate() {
-		this.addTeammate(generateId())
+	private static addRandomProvider() {
+		this.addProvider(generateId())
 	}
 
 	private static addTay() {
-		return this.addTeammate('Taylor Romero')
+		return this.addProvider('Taylor Romero')
 	}
 
-	private static addTeammate(name: string) {
+	private static addProvider(name: string) {
 		const nlpTeammate = {
 			id: generateId(),
 			casualName: name,
 		}
-		this.extractor.addTeammate(nlpTeammate)
+		this.extractor.addProvider(nlpTeammate)
 		return nlpTeammate
 	}
 
-	private static async assertTeammatesEqual(
+	private static async assertProvidersEqual(
 		utterance: string,
 		expected: NlpTeammate[]
 	) {
 		const entities = await this.extract(utterance)
-		assert.isEqualDeep(entities?.teammates, expected)
+		assert.isEqualDeep(
+			entities?.providers,
+			expected.map((e) => e.id)
+		)
 	}
 
 	private static async assertServicesEqual(
@@ -165,7 +168,10 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 		expected: NlpService[]
 	) {
 		const results = await this.extract(utterance)
-		assert.isEqualDeep(results?.services, expected)
+		assert.isEqualDeep(
+			results?.services,
+			expected.map((e) => e.id)
+		)
 	}
 
 	private static async assertNullResults(utturance: string) {
