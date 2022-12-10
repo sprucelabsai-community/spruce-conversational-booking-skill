@@ -3,11 +3,14 @@
   "description": "With words!",
   "version": "0.0.1",
   "skill": {
-    "namespace": "conversational-booking"
+    "namespace": "conversational-booking",
+    "upgradeIgnoreList": [
+      "globby"
+    ]
   },
-  "homepage": "https://github.com/[YOUR REPO PATH]",
+  "homepage": "https://github.com/spruce-conversational-booking-skill",
   "bugs": {
-    "url": "https://github.com/[YOUR REPO PATH]/issues"
+    "url": "https://github.com/spruce-conversational-booking-skill/issues"
   },
   "keywords": [],
   "scripts": {
@@ -18,6 +21,7 @@
     "build.ci": "yarn build.tsc && yarn build.resolve-paths && yarn lint",
     "build.dev": "yarn build.tsc --sourceMap ; yarn resolve-paths.lint",
     "build.copy-files": "mkdir -p build && rsync -avzq --exclude='*.ts' ./src/ ./build/",
+    "build.dist": "yarn build.tsc && yarn build.resolve-paths",
     "build.resolve-paths": "resolve-path-aliases --target build --patterns '**/*.js,**/*.d.ts'",
     "build.tsc": "yarn build.copy-files && tsc",
     "clean": "yarn clean.build",
@@ -25,13 +29,15 @@
     "clean.build": "rm -rf build/",
     "clean.dependencies": "rm -rf node_modules/ package-lock.json yarn.lock",
     "fix.lint": "eslint --fix --cache '**/*.ts'",
+    "heroku-postbuild": "yarn build.dev",
     "lint": "eslint --cache '**/*.ts'",
     "lint.tsc": "tsc -p . --noEmit",
     "post.watch.build": "yarn build.copy-files && yarn build.resolve-paths",
     "rebuild": "yarn clean.all && yarn && yarn build.dev",
-    "update.dependencies": "yarn clean.dependencies && yarn",
+    "release": "semantic-release",
     "resolve-paths.lint": "yarn build.resolve-paths ; yarn lint",
     "test": "jest",
+    "update.dependencies": "yarn clean.dependencies && yarn",
     "watch.build.dev": "tsc-watch --sourceMap --onCompilationComplete 'yarn post.watch.build'",
     "watch.lint": "concurrently 'yarn lint' \"chokidar 'src/**/*' -c 'yarn lint.tsc'\"",
     "watch.rebuild": "yarn clean.all && yarn && yarn watch.build.dev",
@@ -50,7 +56,9 @@
   },
   "devDependencies": {
     "@sprucelabs/jest-json-reporter": "^6.0.533",
+    "@sprucelabs/jest-sheets-reporter": "^2.0.21",
     "@sprucelabs/resolve-path-aliases": "^1.1.144",
+    "@sprucelabs/semantic-release": "^4.0.8",
     "@sprucelabs/spruce-test-fixtures": "^52.3.23",
     "@sprucelabs/test": "^7.7.398",
     "@sprucelabs/test-utils": "^3.2.70",
