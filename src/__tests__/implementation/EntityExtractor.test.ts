@@ -58,9 +58,10 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 		const service = this.addService('Haircut')
 
 		await this.assertServicesEqual('book a haircut', [service])
-		await this.assertServicesEqual('book a haircuts', [service])
-		await this.assertServicesEqual('book a hiarcut', [service])
-		await this.assertNullResults('book a beardtrim')
+		await this.assertServicesEqual('schedule a haircuts', [service])
+		await this.assertServicesEqual('reserve a hiarcut', [service])
+		await this.assertServicesEqual('book a harct', [service])
+		await this.assertNullResults('book beardtrim')
 	}
 
 	@test()
@@ -72,6 +73,16 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 			beardTrim,
 			headShave,
 		])
+	}
+
+	@test()
+	protected static async canPullDateTimeAndServices() {
+		this.addService('Haircut')
+		const beard = this.addService('Beard trim')
+		const utterance = 'book a beard trim for tomorrow at 12pm'
+
+		this.assertStartDateTimeEquals(utterance, tomorrowStartOfDay(), 12, 0)
+		await this.assertServicesEqual(utterance, [beard])
 	}
 
 	private static async assertServicesEqual(
