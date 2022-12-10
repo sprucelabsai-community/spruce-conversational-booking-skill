@@ -3,6 +3,7 @@ import { NlpManager } from 'node-nlp'
 export default class EntityExtractor {
 	private manager: NlpManager
 	private services: Record<string, NlpService> = {}
+	private teammates: Record<string, NlpTeammate> = {}
 
 	private constructor() {
 		this.manager = new NlpManager({
@@ -29,6 +30,7 @@ export default class EntityExtractor {
 
 		this.extractStartDateTimeMs(entities, results)
 		this.extractServices(entities, results)
+		this.extractTeammates(entities, results)
 
 		return results
 	}
@@ -40,6 +42,16 @@ export default class EntityExtractor {
 
 		if (services.length > 0) {
 			results.services = services.map((s) => this.services[s.option])
+		}
+	}
+
+	private extractTeammates(entities: NlpEntity[], results: BookingEntities) {
+		const teammates = entities.filter(
+			(e) => e.entity === 'teammate'
+		) as ServiceEntity[]
+
+		if (teammates.length > 0) {
+			results.teammates = teammates.map((s) => this.teammates[s.option])
 		}
 	}
 
@@ -72,12 +84,21 @@ export default class EntityExtractor {
 		}
 	}
 
-	public addTeammate(_teammate: NlpTeammate) {}
+	public addTeammate(teammate: NlpTeammate) {
+		this.teammates[teammate.id] = teammate
+		this.manager.addNamedEntityText(
+			'teammate',
+			teammate.id,
+			['en'],
+			[teammate.casualName, ...teammate.casualName.split(' ')]
+		)
+	}
 }
 
 interface BookingEntities {
 	startDateTimeMs?: number
 	services?: NlpService[]
+	teammates?: NlpTeammate[]
 }
 
 interface DateTimeEntity {
@@ -91,7 +112,12 @@ type ServiceEntity = {
 	option: string
 }
 
-type NlpEntity = DateTimeEntity | ServiceEntity
+type TeammateEntity = {
+	entity: 'teammate'
+	option: string
+}
+
+type NlpEntity = DateTimeEntity | ServiceEntity | TeammateEntity
 
 interface NlpResolution {
 	values: NlpValue[]
@@ -101,13 +127,12 @@ interface NlpValue {
 	value: string
 }
 
-interface NlpService {
+export interface NlpService {
 	id: string
 	name: string
 }
 
-interface NlpTeammate {
+export interface NlpTeammate {
 	id: string
-	firstName: string
-	lastName: string
+	casualName: string
 }

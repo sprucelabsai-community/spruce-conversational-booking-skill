@@ -8,7 +8,10 @@ import AbstractSpruceTest, {
 	assert,
 	generateId,
 } from '@sprucelabs/test-utils'
-import EntityExtractor from '../../extraction/EntityExtractor'
+import EntityExtractor, {
+	NlpService,
+	NlpTeammate,
+} from '../../extraction/EntityExtractor'
 
 export default class EntityExtractorTest extends AbstractSpruceTest {
 	private static extractor: EntityExtractor
@@ -87,16 +90,79 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 
 	@test()
 	protected static async canAddTeammates() {
-		this.extractor.addTeammate({
+		const teammate = this.addTay()
+
+		await this.assertTeammatesEqual('book a haircut with taylor', [teammate])
+		await this.assertTeammatesEqual('book anything with tylor', [teammate])
+		await this.assertTeammatesEqual('book beard trime with Taylor', [teammate])
+		await this.assertTeammatesEqual('book beard trime with romero', [teammate])
+	}
+
+	@test()
+	protected static async canAddMultipleTeammates() {
+		const tay = this.addTay()
+		const jimi = this.addTeammate('Jimi K.')
+
+		await this.assertTeammatesEqual('book a haircut with taylor or jimi', [
+			tay,
+			jimi,
+		])
+
+		await this.assertTeammatesEqual(
+			'book a haircut with taylor and beard trim with jimi',
+			[tay, jimi]
+		)
+	}
+
+	@test()
+	protected static async canDoEverything() {
+		this.addRandomTeammate()
+		this.addRandomTeammate()
+		const tay = this.addTay()
+		this.addRandomTeammate()
+
+		this.addRandomService()
+		const beard = this.addService('Beard trim')
+		this.addRandomService()
+
+		const utterance = 'book a beardtrim with taylor for tomorrow at 3pm'
+		await this.assertStartDateTimeEquals(utterance, tomorrowStartOfDay(), 15, 0)
+		await this.assertTeammatesEqual(utterance, [tay])
+		await this.assertServicesEqual(utterance, [beard])
+	}
+
+	private static addRandomService() {
+		this.addService(generateId())
+	}
+
+	private static addRandomTeammate() {
+		this.addTeammate(generateId())
+	}
+
+	private static addTay() {
+		return this.addTeammate('Taylor Romero')
+	}
+
+	private static addTeammate(name: string) {
+		const nlpTeammate = {
 			id: generateId(),
-			firstName: 'Tay',
-			lastName: 'Romero',
-		})
+			casualName: name,
+		}
+		this.extractor.addTeammate(nlpTeammate)
+		return nlpTeammate
+	}
+
+	private static async assertTeammatesEqual(
+		utterance: string,
+		expected: NlpTeammate[]
+	) {
+		const entities = await this.extract(utterance)
+		assert.isEqualDeep(entities?.teammates, expected)
 	}
 
 	private static async assertServicesEqual(
 		utterance: string,
-		expected: { id: string; name: string }[]
+		expected: NlpService[]
 	) {
 		const results = await this.extract(utterance)
 		assert.isEqualDeep(results?.services, expected)
