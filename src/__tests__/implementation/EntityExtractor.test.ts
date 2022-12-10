@@ -3,8 +3,12 @@ import {
 	startOfToday,
 	tomorrowStartOfDay,
 } from '@sprucelabs/calendar-utils'
-import AbstractSpruceTest, { test, assert } from '@sprucelabs/test-utils'
-import { NlpManager } from 'node-nlp'
+import AbstractSpruceTest, {
+	test,
+	assert,
+	generateId,
+} from '@sprucelabs/test-utils'
+import EntityExtractor from '../../extraction/EntityExtractor'
 
 export default class EntityExtractorTest extends AbstractSpruceTest {
 	private static extractor: EntityExtractor
@@ -15,8 +19,7 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 
 	@test()
 	protected static async noEntitiesForEmptyString() {
-		const entities = await this.extract('')
-		assert.isNull(entities)
+		await this.assertNullResults('')
 	}
 
 	@test()
@@ -50,6 +53,49 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 		)
 	}
 
+	@test()
+	protected static async canAddServices() {
+		const service = this.addService('Haircut')
+
+		await this.assertServicesEqual('book a haircut', [service])
+		await this.assertServicesEqual('book a haircuts', [service])
+		await this.assertServicesEqual('book a hiarcut', [service])
+		await this.assertNullResults('book a beardtrim')
+	}
+
+	@test()
+	protected static async canAddMultipleServices() {
+		const beardTrim = this.addService('Beard Trim')
+		const headShave = this.addService('Head Shave')
+
+		await this.assertServicesEqual('book a bread trim and a head shave', [
+			beardTrim,
+			headShave,
+		])
+	}
+
+	private static async assertServicesEqual(
+		utterance: string,
+		expected: { id: string; name: string }[]
+	) {
+		const results = await this.extract(utterance)
+		assert.isEqualDeep(results?.services, expected)
+	}
+
+	private static async assertNullResults(utturance: string) {
+		const entities = await this.extract(utturance)
+		assert.isNull(entities)
+	}
+
+	private static addService(name: string) {
+		const service = {
+			id: generateId(),
+			name,
+		}
+		this.extractor.addService(service)
+		return service
+	}
+
 	private static async assertStartDateTimeEquals(
 		utterance: string,
 		date: number,
@@ -64,54 +110,4 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 	private static async extract(utterance: string) {
 		return this.extractor.extract(utterance)
 	}
-}
-
-class EntityExtractor {
-	private constructor() {}
-
-	public static Extractor() {
-		return new this()
-	}
-
-	public async extract(utterance: string): Promise<BookingEntities | null> {
-		const manager = new NlpManager({ languages: ['en'], forceNER: true })
-
-		const { entities } = (await manager.process('en', utterance)) as {
-			entities: NlpEntity[]
-		}
-
-		if (entities.length === 0) {
-			return null
-		}
-
-		const results: BookingEntities = {}
-		const dateMatch = entities.find((e) => e.entity === 'datetime')?.resolution
-			?.values?.[0]?.value
-
-		if (dateMatch) {
-			const date = new Date(dateMatch)
-			results.startDateTimeMs =
-				date.getTime() - date.getTimezoneOffset() * 60 * 1000
-		}
-
-		return results
-	}
-}
-
-interface BookingEntities {
-	startDateTimeMs?: number | null
-}
-
-interface NlpEntity {
-	accuracy: number
-	entity: 'datetime' | 'dimension'
-	resolution: NlpResolution
-}
-
-interface NlpResolution {
-	values: NlpValue[]
-}
-
-interface NlpValue {
-	value: string
 }
