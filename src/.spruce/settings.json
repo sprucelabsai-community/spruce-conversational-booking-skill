@@ -9,5 +9,8 @@
     "permission",
     "event",
     "sandbox"
-  ]
+  ],
+  "events": {
+    "lastSync": {}
+  }
 }
