@@ -10,10 +10,20 @@ import { BookingEntities } from '../../extraction/EntityExtractor'
 
 export default class AppointmentResolverTest extends AbstractSpruceFixtureTest {
 	private static servicesWithProviders: ServiceWithProviders[]
+	private static serviceId1: string
+	private static serviceId2: string
+	private static providerId1: string
+	private static providerId2: string
 
 	protected static async beforeEach() {
 		await super.beforeEach()
+
 		this.servicesWithProviders = []
+
+		this.serviceId1 = id()
+		this.serviceId2 = id()
+		this.providerId1 = id()
+		this.providerId2 = id()
 	}
 
 	@test()
@@ -36,21 +46,15 @@ export default class AppointmentResolverTest extends AbstractSpruceFixtureTest {
 
 	@test()
 	protected static async matchesOnlyMatch() {
-		const serviceId = id()
-		const providerId = id()
-
-		this.addService({
-			id: serviceId,
-			providers: [providerId],
-		})
+		this.addFirstServiceWithFirstProvider()
 
 		await this.assertResolvesAsExpected(
-			[serviceId],
-			[providerId],
+			[this.serviceId1],
+			[this.providerId1],
 			[
 				{
-					serviceId,
-					providerId,
+					serviceId: this.serviceId1,
+					providerId: this.providerId1,
 				},
 			]
 		)
@@ -58,31 +62,24 @@ export default class AppointmentResolverTest extends AbstractSpruceFixtureTest {
 
 	@test()
 	protected static async matchesMultipleServicesWithTheSameProvider() {
-		const serviceId1 = id()
-		const serviceId2 = id()
-		const providerId = id()
+		this.addFirstServiceWithFirstProvider()
 
 		this.addService({
-			id: serviceId1,
-			providers: [providerId],
-		})
-
-		this.addService({
-			id: serviceId2,
-			providers: [providerId],
+			id: this.serviceId2,
+			providers: [this.providerId1],
 		})
 
 		await this.assertResolvesAsExpected(
-			[serviceId1, serviceId2],
-			[providerId],
+			[this.serviceId1, this.serviceId2],
+			[this.providerId1],
 			[
 				{
-					serviceId: serviceId1,
-					providerId,
+					serviceId: this.serviceId1,
+					providerId: this.providerId1,
 				},
 				{
-					serviceId: serviceId2,
-					providerId,
+					serviceId: this.serviceId2,
+					providerId: this.providerId1,
 				},
 			]
 		)
@@ -112,35 +109,37 @@ export default class AppointmentResolverTest extends AbstractSpruceFixtureTest {
 
 	@test()
 	protected static async twoServicesWithTwoTeammates() {
-		const serviceId1 = id()
-		const serviceId2 = id()
-		const providerId1 = id()
-		const providerId2 = id()
+		this.addFirstServiceWithFirstProvider()
 
 		this.addService({
-			id: serviceId1,
-			providers: [providerId1],
-		})
-
-		this.addService({
-			id: serviceId2,
-			providers: [providerId2],
+			id: this.serviceId2,
+			providers: [this.providerId2],
 		})
 
 		await this.assertResolvesAsExpected(
-			[serviceId1, serviceId2],
-			[providerId1, providerId2],
+			[this.serviceId1, this.serviceId2],
+			[this.providerId1, this.providerId2],
 			[
 				{
-					serviceId: serviceId1,
-					providerId: providerId1,
+					serviceId: this.serviceId1,
+					providerId: this.providerId1,
 				},
 				{
-					serviceId: serviceId2,
-					providerId: providerId2,
+					serviceId: this.serviceId2,
+					providerId: this.providerId2,
 				},
 			]
 		)
+	}
+
+	@test()
+	protected static async asksForMissingTeammate() {}
+
+	private static addFirstServiceWithFirstProvider() {
+		this.addService({
+			id: this.serviceId1,
+			providers: [this.providerId1],
+		})
 	}
 
 	private static addService(serviceWithProviders: {
