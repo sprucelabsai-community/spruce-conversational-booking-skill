@@ -50,6 +50,7 @@
     "@sprucelabs/mercury-core-events": "^15.0.133",
     "@sprucelabs/mercury-types": "^38.0.14",
     "@sprucelabs/schema": "^28.5.82",
+    "@sprucelabs/spruce-conversation-plugin": "^52.3.23",
     "@sprucelabs/spruce-core-schemas": "^35.1.84",
     "@sprucelabs/spruce-event-plugin": "^52.3.23",
     "@sprucelabs/spruce-event-utils": "^30.0.14",
