@@ -12,17 +12,31 @@ const createHoldEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'createHoldEmitPermissions',
 				name: 'create hold',
+				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-hold-time',
 						name: 'Can hold time',
+						description: null,
+						requireAllStatuses: false,
 						defaults: {
+							skill: null,
+							owner: null,
+							groupManager: null,
+							manager: null,
+							teammate: null,
+							anonymous: null,
 							loggedIn: {
 								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
 							},
+							guest: null,
 						},
-						requireAllStatuses: false,
+						can: null,
 					},
 				],
 			}),
