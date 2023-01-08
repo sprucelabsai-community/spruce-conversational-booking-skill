@@ -12,6 +12,9 @@ declare module '@sprucelabs/mercury-types/build/types/mercury.types' {
 		'appointments.createCategoryEmitPermissions': [
 			'can-create-category',
 		]
+		'appointments.createHoldEmitPermissions': [
+			'can-hold-time',
+		]
 		'appointments.createPersonCapabilityEmitPermissions': [
 			'can-create-person-capability',
 		]
@@ -24,32 +27,17 @@ declare module '@sprucelabs/mercury-types/build/types/mercury.types' {
 		'appointments.deleteCategoryEmitPermissions': [
 			'can-delete-category',
 		]
+		'appointments.deleteServiceEmitPermissions': [
+			'can-delete-service',
+		]
 		'appointments.getEmitPermissions': [
 			'can-get-appointment',
-		]
-		'appointments.getAvailableTimesEmitPermissions': [
-			'can-get-available-times',
 		]
 		'appointments.getCategoryEmitPermissions': [
 			'can-get-category',
 		]
-		'appointments.getOrganizationSettingsEmitPermissions': [
-			'can-get-organization-settings',
-		]
-		'appointments.getServiceEmitPermissions': [
-			'can-get-service',
-		]
-		'appointments.listEmitPermissions': [
-			'can-list-appointments',
-		]
-		'appointments.listCategoriesEmitPermissions': [
-			'can-list-categories',
-		]
-		'appointments.listBookedServicesEmitPermissions': [
-			'can-list-booked-services',
-		]
-		'appointments.listPeopleCapabilitiesEmitPermissions': [
-			'can-list-people-capabilities',
+		'appointments.getAvailableTimesEmitPermissions': [
+			'can-get-available-times',
 		]
 		'appointments.listRoleCapabilitiesEmitPermissions': [
 			'can-list-role-capabilities',
@@ -78,11 +66,26 @@ declare module '@sprucelabs/mercury-types/build/types/mercury.types' {
 		'appointments.updateCategoryEmitPermissions': [
 			'can-edit-category',
 		]
-		'appointments.updatePersonCapabilityEmitPermissions': [
-			'can-update-people-capability',
-		]
 		'appointments.updateOrganizationSettingsEmitPermissions': [
 			'can-save-org-settings',
+		]
+		'appointments.getOrganizationSettingsEmitPermissions': [
+			'can-get-organization-settings',
+		]
+		'appointments.getServiceEmitPermissions': [
+			'can-get-service',
+		]
+		'appointments.listBookedServicesEmitPermissions': [
+			'can-list-booked-services',
+		]
+		'appointments.listEmitPermissions': [
+			'can-list-appointments',
+		]
+		'appointments.willSendConfirmationListenPermissions': [
+			'can-listen-to-will-send',
+		]
+		'appointments.updatePersonCapabilityEmitPermissions': [
+			'can-update-people-capability',
 		]
 		'appointments.updateRoleCapabilityEmitPermissions': [
 			'can-update-role-capability',
@@ -90,14 +93,11 @@ declare module '@sprucelabs/mercury-types/build/types/mercury.types' {
 		'appointments.updateServiceEmitPermissions': [
 			'can-edit-service',
 		]
-		'appointments.willSendConfirmationListenPermissions': [
-			'can-listen-to-will-send',
+		'appointments.listPeopleCapabilitiesEmitPermissions': [
+			'can-list-people-capabilities',
 		]
-		'appointments.deleteServiceEmitPermissions': [
-			'can-delete-service',
-		]
-		'appointments.createHoldEmitPermissions': [
-			'can-hold-time',
+		'appointments.listCategoriesEmitPermissions': [
+			'can-list-categories',
 		]
 	}
 }
