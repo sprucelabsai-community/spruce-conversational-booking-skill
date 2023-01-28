@@ -13,15 +13,25 @@ const registerCapabilitiesEventContract = buildEventContract({
 			listenPermissionContract: buildPermissionContract({
 				id: 'registerCapabilitiesListenPermissions',
 				name: 'register capabilities',
+				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-register-capabilities',
 						name: 'Can register capabilities',
+						description: null,
+						requireAllStatuses: false,
 						defaults: {
 							skill: true,
+							owner: null,
+							groupManager: null,
+							manager: null,
+							teammate: null,
+							anonymous: null,
+							loggedIn: null,
+							guest: null,
 						},
-						requireAllStatuses: false,
+						can: null,
 					},
 				],
 			}),
