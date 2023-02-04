@@ -1,3 +1,4 @@
+//@ts-ignore
 import { NlpManager } from 'node-nlp'
 
 export default class EntityExtractor {
