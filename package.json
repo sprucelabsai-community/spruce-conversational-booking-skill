@@ -47,7 +47,7 @@
     "@sprucelabs/calendar-utils": "^31.4.6",
     "@sprucelabs/error": "^5.0.576",
     "@sprucelabs/mercury-client": "^35.0.129",
-    "@sprucelabs/mercury-core-events": "^15.1.8",
+    "@sprucelabs/mercury-core-events": "^15.1.9",
     "@sprucelabs/mercury-types": "^38.0.95",
     "@sprucelabs/schema": "^28.5.120",
     "@sprucelabs/spruce-conversation-plugin": "^52.7.1",
