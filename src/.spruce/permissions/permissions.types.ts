@@ -14,59 +14,26 @@ declare module '@sprucelabs/mercury-types/build/types/mercury.types' {
 		'appointments.createCategoryEmitPermissions': [
 			'can-create-category',
 		]
-		'appointments.createPersonCapabilityEmitPermissions': [
-			'can-create-person-capability',
-		]
 		'appointments.createHoldEmitPermissions': [
 			'can-hold-time',
 		]
-		'appointments.deleteCategoryEmitPermissions': [
-			'can-delete-category',
-		]
-		'appointments.deleteServiceEmitPermissions': [
-			'can-delete-service',
+		'appointments.createPersonCapabilityEmitPermissions': [
+			'can-create-person-capability',
 		]
 		'appointments.createRoleCapabilityEmitPermissions': [
 			'can-create-role-capability',
 		]
-		'appointments.getEmitPermissions': [
-			'can-get-appointment',
+		'appointments.createServiceEmitPermissions': [
+			'can-create-service',
 		]
-		'appointments.getAvailableTimesEmitPermissions': [
-			'can-get-available-times',
-		]
-		'appointments.getCategoryEmitPermissions': [
-			'can-get-category',
-		]
-		'appointments.getServiceEmitPermissions': [
-			'can-get-service',
-		]
-		'appointments.listEmitPermissions': [
-			'can-list-appointments',
-		]
-		'appointments.listBookedServicesEmitPermissions': [
-			'can-list-booked-services',
-		]
-		'appointments.getOrganizationSettingsEmitPermissions': [
-			'can-get-organization-settings',
-		]
-		'appointments.listCategoriesEmitPermissions': [
-			'can-list-categories',
-		]
-		'appointments.listPeopleCapabilitiesEmitPermissions': [
-			'can-list-people-capabilities',
-		]
-		'appointments.listServicesEmitPermissions': [
-			'can-list-services',
-		]
-		'appointments.listStatusesEmitPermissions': [
-			'can-list-statuses',
+		'appointments.deleteCategoryEmitPermissions': [
+			'can-delete-category',
 		]
 		'appointments.listServicesWithProvidersEmitPermissions': [
 			'can-list-services-with-providers',
 		]
-		'appointments.listRoleCapabilitiesEmitPermissions': [
-			'can-list-role-capabilities',
+		'appointments.listStatusesEmitPermissions': [
+			'can-list-statuses',
 		]
 		'appointments.registerCapabilitiesListenPermissions': [
 			'can-register-capabilities',
@@ -77,14 +44,50 @@ declare module '@sprucelabs/mercury-types/build/types/mercury.types' {
 		'appointments.updateListenPermissions': [
 			'can-high-five',
 		]
-		'appointments.updateCategoryEmitPermissions': [
-			'can-edit-category',
-		]
 		'appointments.updateEmitPermissions': [
 			'can-update-appointment',
 		]
+		'appointments.updateCategoryEmitPermissions': [
+			'can-edit-category',
+		]
 		'appointments.updateOrganizationSettingsEmitPermissions': [
 			'can-save-org-settings',
+		]
+		'appointments.updatePersonCapabilityEmitPermissions': [
+			'can-update-people-capability',
+		]
+		'appointments.getAvailableTimesEmitPermissions': [
+			'can-get-available-times',
+		]
+		'appointments.getEmitPermissions': [
+			'can-get-appointment',
+		]
+		'appointments.deleteServiceEmitPermissions': [
+			'can-delete-service',
+		]
+		'appointments.getCategoryEmitPermissions': [
+			'can-get-category',
+		]
+		'appointments.getOrganizationSettingsEmitPermissions': [
+			'can-get-organization-settings',
+		]
+		'appointments.getServiceEmitPermissions': [
+			'can-get-service',
+		]
+		'appointments.listEmitPermissions': [
+			'can-list-appointments',
+		]
+		'appointments.listBookedServicesEmitPermissions': [
+			'can-list-booked-services',
+		]
+		'appointments.listCategoriesEmitPermissions': [
+			'can-list-categories',
+		]
+		'appointments.listPeopleCapabilitiesEmitPermissions': [
+			'can-list-people-capabilities',
+		]
+		'appointments.updateServiceEmitPermissions': [
+			'can-edit-service',
 		]
 		'appointments.updateRoleCapabilityEmitPermissions': [
 			'can-update-role-capability',
@@ -92,14 +95,11 @@ declare module '@sprucelabs/mercury-types/build/types/mercury.types' {
 		'appointments.willSendConfirmationListenPermissions': [
 			'can-listen-to-will-send',
 		]
-		'appointments.updatePersonCapabilityEmitPermissions': [
-			'can-update-people-capability',
+		'appointments.listRoleCapabilitiesEmitPermissions': [
+			'can-list-role-capabilities',
 		]
-		'appointments.updateServiceEmitPermissions': [
-			'can-edit-service',
-		]
-		'appointments.createServiceEmitPermissions': [
-			'can-create-service',
+		'appointments.listServicesEmitPermissions': [
+			'can-list-services',
 		]
 	}
 }
