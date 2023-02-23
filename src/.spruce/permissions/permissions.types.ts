@@ -5,35 +5,56 @@ declare module '@sprucelabs/mercury-types/build/types/mercury.types' {
 		'appointments.bookEmitPermissions': [
 			'can-book-appointment',
 		]
-		'appointments.cancelHoldEmitPermissions': [
-			'can-cancel-hold',
-		]
 		'appointments.createEmitPermissions': [
 			'can-create-appointment',
 		]
 		'appointments.createCategoryEmitPermissions': [
 			'can-create-category',
 		]
+		'appointments.cancelHoldEmitPermissions': [
+			'can-cancel-hold',
+		]
 		'appointments.createHoldEmitPermissions': [
 			'can-hold-time',
-		]
-		'appointments.createPersonCapabilityEmitPermissions': [
-			'can-create-person-capability',
 		]
 		'appointments.createRoleCapabilityEmitPermissions': [
 			'can-create-role-capability',
 		]
+		'appointments.createPersonCapabilityEmitPermissions': [
+			'can-create-person-capability',
+		]
 		'appointments.createServiceEmitPermissions': [
 			'can-create-service',
+		]
+		'appointments.deleteServiceEmitPermissions': [
+			'can-delete-service',
+		]
+		'appointments.getCategoryEmitPermissions': [
+			'can-get-category',
+		]
+		'appointments.listBookedServicesEmitPermissions': [
+			'can-list-booked-services',
+		]
+		'appointments.listPeopleCapabilitiesEmitPermissions': [
+			'can-list-people-capabilities',
+		]
+		'appointments.listCategoriesEmitPermissions': [
+			'can-list-categories',
+		]
+		'appointments.getOrganizationSettingsEmitPermissions': [
+			'can-get-organization-settings',
+		]
+		'appointments.getServiceEmitPermissions': [
+			'can-get-service',
 		]
 		'appointments.deleteCategoryEmitPermissions': [
 			'can-delete-category',
 		]
+		'appointments.getEmitPermissions': [
+			'can-get-appointment',
+		]
 		'appointments.listServicesWithProvidersEmitPermissions': [
 			'can-list-services-with-providers',
-		]
-		'appointments.listStatusesEmitPermissions': [
-			'can-list-statuses',
 		]
 		'appointments.registerCapabilitiesListenPermissions': [
 			'can-register-capabilities',
@@ -44,62 +65,41 @@ declare module '@sprucelabs/mercury-types/build/types/mercury.types' {
 		'appointments.updateListenPermissions': [
 			'can-high-five',
 		]
-		'appointments.updateEmitPermissions': [
-			'can-update-appointment',
-		]
 		'appointments.updateCategoryEmitPermissions': [
 			'can-edit-category',
-		]
-		'appointments.updateOrganizationSettingsEmitPermissions': [
-			'can-save-org-settings',
 		]
 		'appointments.updatePersonCapabilityEmitPermissions': [
 			'can-update-people-capability',
 		]
-		'appointments.getAvailableTimesEmitPermissions': [
-			'can-get-available-times',
+		'appointments.listStatusesEmitPermissions': [
+			'can-list-statuses',
 		]
-		'appointments.getEmitPermissions': [
-			'can-get-appointment',
-		]
-		'appointments.deleteServiceEmitPermissions': [
-			'can-delete-service',
-		]
-		'appointments.getCategoryEmitPermissions': [
-			'can-get-category',
-		]
-		'appointments.getOrganizationSettingsEmitPermissions': [
-			'can-get-organization-settings',
-		]
-		'appointments.getServiceEmitPermissions': [
-			'can-get-service',
-		]
-		'appointments.listEmitPermissions': [
-			'can-list-appointments',
-		]
-		'appointments.listBookedServicesEmitPermissions': [
-			'can-list-booked-services',
-		]
-		'appointments.listCategoriesEmitPermissions': [
-			'can-list-categories',
-		]
-		'appointments.listPeopleCapabilitiesEmitPermissions': [
-			'can-list-people-capabilities',
-		]
-		'appointments.updateServiceEmitPermissions': [
-			'can-edit-service',
-		]
-		'appointments.updateRoleCapabilityEmitPermissions': [
-			'can-update-role-capability',
-		]
-		'appointments.willSendConfirmationListenPermissions': [
-			'can-listen-to-will-send',
+		'appointments.updateEmitPermissions': [
+			'can-update-appointment',
 		]
 		'appointments.listRoleCapabilitiesEmitPermissions': [
 			'can-list-role-capabilities',
 		]
+		'appointments.updateOrganizationSettingsEmitPermissions': [
+			'can-save-org-settings',
+		]
+		'appointments.updateServiceEmitPermissions': [
+			'can-edit-service',
+		]
 		'appointments.listServicesEmitPermissions': [
 			'can-list-services',
+		]
+		'appointments.willSendConfirmationListenPermissions': [
+			'can-listen-to-will-send',
+		]
+		'appointments.getAvailableTimesEmitPermissions': [
+			'can-get-available-times',
+		]
+		'appointments.listEmitPermissions': [
+			'can-list-appointments',
+		]
+		'appointments.updateRoleCapabilityEmitPermissions': [
+			'can-update-role-capability',
 		]
 	}
 }
