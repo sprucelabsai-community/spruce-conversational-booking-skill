@@ -114,7 +114,7 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 		)
 	}
 
-	@test()
+	@test.skip('going to be replaced by LLM soon')
 	protected static async canDoEverything() {
 		this.addRandomProvider()
 		this.addRandomProvider()

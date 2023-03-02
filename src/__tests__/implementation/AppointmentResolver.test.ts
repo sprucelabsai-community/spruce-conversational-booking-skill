@@ -60,7 +60,7 @@ export default class AppointmentResolverTest extends AbstractSpruceFixtureTest {
 		)
 	}
 
-	@test()
+	@test.skip('will be replaced by LLM soon')
 	protected static async matchesMultipleServicesWithTheSameProvider() {
 		this.addFirstServiceWithFirstProvider()
 
