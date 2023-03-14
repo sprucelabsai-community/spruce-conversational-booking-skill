@@ -1,5 +1,5 @@
 import fs from "fs";
-import globby from "globby";
+import globby from "@sprucelabs/globby";
 import pathUtil from "path";
 import { SchemaError } from '@sprucelabs/schema'
 import {
