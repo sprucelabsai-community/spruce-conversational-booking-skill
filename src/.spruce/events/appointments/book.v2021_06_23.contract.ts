@@ -10,7 +10,7 @@ const bookEventContract = buildEventContract({
 			emitPayloadSchema: bookEmitTargetAndPayloadSchema,
 			responsePayloadSchema: bookResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'bookEmitPermissions',
+				id: 'appointments.bookEmitPermissions',
 				name: 'book',
 				description: null,
 				requireAllPermissions: false,

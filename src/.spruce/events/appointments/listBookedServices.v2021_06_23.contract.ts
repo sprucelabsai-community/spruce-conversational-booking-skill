@@ -10,7 +10,7 @@ const listBookedServicesEventContract = buildEventContract({
 			emitPayloadSchema: listBookedServicesEmitTargetAndPayloadSchema,
 			responsePayloadSchema: listBookedServicesResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'listBookedServicesEmitPermissions',
+				id: 'appointments.listBookedServicesEmitPermissions',
 				name: 'list booked services',
 				description: null,
 				requireAllPermissions: false,

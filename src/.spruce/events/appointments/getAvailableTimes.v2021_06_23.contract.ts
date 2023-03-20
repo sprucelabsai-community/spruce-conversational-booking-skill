@@ -10,7 +10,7 @@ const getAvailableTimesEventContract = buildEventContract({
 			emitPayloadSchema: getAvailableTimesEmitTargetAndPayloadSchema,
 			responsePayloadSchema: getAvailableTimesResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'getAvailableTimesEmitPermissions',
+				id: 'appointments.getAvailableTimesEmitPermissions',
 				name: 'get available times',
 				description: null,
 				requireAllPermissions: false,

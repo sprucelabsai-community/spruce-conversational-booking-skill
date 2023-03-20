@@ -10,7 +10,7 @@ const getServiceEventContract = buildEventContract({
 			emitPayloadSchema: getServiceEmitTargetAndPayloadSchema,
 			responsePayloadSchema: getServiceResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'getServiceEmitPermissions',
+				id: 'appointments.getServiceEmitPermissions',
 				name: 'get service',
 				description: null,
 				requireAllPermissions: false,

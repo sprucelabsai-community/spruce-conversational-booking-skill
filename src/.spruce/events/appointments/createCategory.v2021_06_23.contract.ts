@@ -10,7 +10,7 @@ const createCategoryEventContract = buildEventContract({
 			emitPayloadSchema: createCategoryEmitTargetAndPayloadSchema,
 			responsePayloadSchema: createCategoryResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'createCategoryEmitPermissions',
+				id: 'appointments.createCategoryEmitPermissions',
 				name: 'create category',
 				description: null,
 				requireAllPermissions: false,

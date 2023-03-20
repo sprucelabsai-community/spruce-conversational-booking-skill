@@ -10,7 +10,7 @@ const updatePersonCapabilityEventContract = buildEventContract({
 			emitPayloadSchema: updatePersonCapabilityEmitTargetAndPayloadSchema,
 			responsePayloadSchema: updatePersonCapabilityResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'updatePersonCapabilityEmitPermissions',
+				id: 'appointments.updatePersonCapabilityEmitPermissions',
 				name: 'update person capability',
 				description: null,
 				requireAllPermissions: false,

@@ -10,7 +10,7 @@ const updateEventContract = buildEventContract({
 			emitPayloadSchema: updateEmitTargetAndPayloadSchema,
 			responsePayloadSchema: updateResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'updateEmitPermissions',
+				id: 'appointments.updateEmitPermissions',
 				name: 'update',
 				description: null,
 				requireAllPermissions: false,
@@ -65,7 +65,7 @@ const updateEventContract = buildEventContract({
 				],
 			}),
 			listenPermissionContract: buildPermissionContract({
-				id: 'updateListenPermissions',
+				id: 'appointments.updateListenPermissions',
 				name: 'update',
 				description: null,
 				requireAllPermissions: false,

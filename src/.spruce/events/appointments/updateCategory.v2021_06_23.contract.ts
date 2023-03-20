@@ -10,7 +10,7 @@ const updateCategoryEventContract = buildEventContract({
 			emitPayloadSchema: updateCategoryEmitTargetAndPayloadSchema,
 			responsePayloadSchema: updateCategoryResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'updateCategoryEmitPermissions',
+				id: 'appointments.updateCategoryEmitPermissions',
 				name: 'edit category',
 				description: null,
 				requireAllPermissions: false,

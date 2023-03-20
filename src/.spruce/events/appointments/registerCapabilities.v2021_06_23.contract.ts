@@ -11,7 +11,7 @@ const registerCapabilitiesEventContract = buildEventContract({
 			responsePayloadSchema: registerCapabilitiesResponsePayloadSchema,
 
 			listenPermissionContract: buildPermissionContract({
-				id: 'registerCapabilitiesListenPermissions',
+				id: 'appointments.registerCapabilitiesListenPermissions',
 				name: 'register capabilities',
 				description: null,
 				requireAllPermissions: false,

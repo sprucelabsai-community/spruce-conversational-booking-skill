@@ -10,7 +10,7 @@ const listRoleCapabilitiesEventContract = buildEventContract({
 			emitPayloadSchema: listRoleCapabilitiesEmitTargetAndPayloadSchema,
 			responsePayloadSchema: listRoleCapabilitiesResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'listRoleCapabilitiesEmitPermissions',
+				id: 'appointments.listRoleCapabilitiesEmitPermissions',
 				name: 'list role capabilities',
 				description: null,
 				requireAllPermissions: false,

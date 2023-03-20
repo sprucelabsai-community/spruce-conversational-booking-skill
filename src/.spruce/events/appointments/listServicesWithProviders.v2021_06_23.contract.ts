@@ -10,7 +10,7 @@ const listServicesWithProvidersEventContract = buildEventContract({
 			emitPayloadSchema: listServicesWithProvidersEmitTargetAndPayloadSchema,
 			responsePayloadSchema: listServicesWithProvidersResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'listServicesWithProvidersEmitPermissions',
+				id: 'appointments.listServicesWithProvidersEmitPermissions',
 				name: 'List services with providers',
 				description: null,
 				requireAllPermissions: false,

@@ -10,7 +10,7 @@ const deleteServiceEventContract = buildEventContract({
 			emitPayloadSchema: deleteServiceEmitTargetAndPayloadSchema,
 			responsePayloadSchema: deleteServiceResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'deleteServiceEmitPermissions',
+				id: 'appointments.deleteServiceEmitPermissions',
 				name: 'Delete Service',
 				description: null,
 				requireAllPermissions: false,

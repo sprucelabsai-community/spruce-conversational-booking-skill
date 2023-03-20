@@ -10,7 +10,7 @@ const updateServiceEventContract = buildEventContract({
 			emitPayloadSchema: updateServiceEmitTargetAndPayloadSchema,
 			responsePayloadSchema: updateServiceResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'updateServiceEmitPermissions',
+				id: 'appointments.updateServiceEmitPermissions',
 				name: 'edit service',
 				description: null,
 				requireAllPermissions: false,

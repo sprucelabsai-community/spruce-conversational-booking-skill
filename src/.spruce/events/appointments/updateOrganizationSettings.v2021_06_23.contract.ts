@@ -10,7 +10,7 @@ const updateOrganizationSettingsEventContract = buildEventContract({
 			emitPayloadSchema: updateOrganizationSettingsEmitTargetAndPayloadSchema,
 			responsePayloadSchema: updateOrganizationSettingsResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'updateOrganizationSettingsEmitPermissions',
+				id: 'appointments.updateOrganizationSettingsEmitPermissions',
 				name: 'update organization settings',
 				description: null,
 				requireAllPermissions: false,

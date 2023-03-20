@@ -11,7 +11,7 @@ const willSendConfirmationEventContract = buildEventContract({
 			responsePayloadSchema: willSendConfirmationResponsePayloadSchema,
 
 			listenPermissionContract: buildPermissionContract({
-				id: 'willSendConfirmationListenPermissions',
+				id: 'appointments.willSendConfirmationListenPermissions',
 				name: 'Will send confirmation',
 				description: null,
 				requireAllPermissions: false,

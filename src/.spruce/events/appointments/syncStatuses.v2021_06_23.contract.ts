@@ -10,7 +10,7 @@ const syncStatusesEventContract = buildEventContract({
 			emitPayloadSchema: syncStatusesEmitTargetAndPayloadSchema,
 			responsePayloadSchema: syncStatusesResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'syncStatusesEmitPermissions',
+				id: 'appointments.syncStatusesEmitPermissions',
 				name: 'sync statuses',
 				description: null,
 				requireAllPermissions: false,

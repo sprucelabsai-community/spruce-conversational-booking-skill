@@ -10,7 +10,7 @@ const cancelHoldEventContract = buildEventContract({
 			emitPayloadSchema: cancelHoldEmitTargetAndPayloadSchema,
 			responsePayloadSchema: cancelHoldResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'cancelHoldEmitPermissions',
+				id: 'appointments.cancelHoldEmitPermissions',
 				name: 'cancel hold',
 				description: null,
 				requireAllPermissions: false,

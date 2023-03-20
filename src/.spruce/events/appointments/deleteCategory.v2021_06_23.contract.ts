@@ -10,7 +10,7 @@ const deleteCategoryEventContract = buildEventContract({
 			emitPayloadSchema: deleteCategoryEmitTargetAndPayloadSchema,
 			responsePayloadSchema: deleteCategoryResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'deleteCategoryEmitPermissions',
+				id: 'appointments.deleteCategoryEmitPermissions',
 				name: 'delete category',
 				description: null,
 				requireAllPermissions: false,

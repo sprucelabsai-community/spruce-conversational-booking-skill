@@ -10,7 +10,7 @@ const createHoldEventContract = buildEventContract({
 			emitPayloadSchema: createHoldEmitTargetAndPayloadSchema,
 			responsePayloadSchema: createHoldResponsePayloadSchema,
 			emitPermissionContract: buildPermissionContract({
-				id: 'createHoldEmitPermissions',
+				id: 'appointments.createHoldEmitPermissions',
 				name: 'create hold',
 				description: null,
 				requireAllPermissions: false,
