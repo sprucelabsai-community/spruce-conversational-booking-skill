@@ -12,31 +12,18 @@ const cancelHoldEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.cancelHoldEmitPermissions',
 				name: 'cancel hold',
-				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-cancel-hold',
 						name: 'Can cancel hold',
-						description: null,
-						requireAllStatuses: false,
 						defaults: {
-							skill: false,
-							owner: null,
-							groupManager: null,
-							manager: null,
-							teammate: null,
-							anonymous: null,
 							loggedIn: {
 								default: true,
-								clockedIn: null,
-								clockedOut: null,
-								onPrem: null,
-								offPrem: null,
 							},
-							guest: null,
+							skill: false,
 						},
-						can: null,
+						requireAllStatuses: false,
 					},
 				],
 			}),
