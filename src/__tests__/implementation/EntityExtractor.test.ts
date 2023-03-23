@@ -84,7 +84,7 @@ export default class EntityExtractorTest extends AbstractSpruceTest {
 		const beard = this.addService('Beard trim')
 		const utterance = 'book a beard trim for tomorrow at 12pm'
 
-		this.assertStartDateTimeEquals(utterance, tomorrowStartOfDay(), 12, 0)
+		await this.assertStartDateTimeEquals(utterance, tomorrowStartOfDay(), 12, 0)
 		await this.assertServicesEqual(utterance, [beard])
 	}
 

@@ -41,7 +41,7 @@ export default class AppointmentResolverTest extends AbstractSpruceFixtureTest {
 	@test()
 	protected static async canCreateWithExpected() {
 		const servicesWithProviders: ServiceWithProviders[] = []
-		this.Resolver(servicesWithProviders)
+		await this.Resolver(servicesWithProviders)
 	}
 
 	@test()
