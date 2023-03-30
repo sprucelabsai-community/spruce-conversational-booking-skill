@@ -16,15 +16,8 @@ const createEmitTargetSchema: SpruceSchemas.Appointments.v2021_06_23.CreateEmitT
 	                options: undefined
 	            },
 	            /** . */
-	            'calendarEventId': {
+	            'guestId': {
 	                type: 'id',
-	                isRequired: true,
-	                options: undefined
-	            },
-	            /** . */
-	            'serviceId': {
-	                type: 'id',
-	                isRequired: true,
 	                options: undefined
 	            },
 	    }
