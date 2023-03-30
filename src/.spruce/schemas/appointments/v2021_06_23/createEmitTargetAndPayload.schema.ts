@@ -26,6 +26,7 @@ const createEmitTargetAndPayloadSchema: SpruceSchemas.Appointments.v2021_06_23.C
 	            /** . */
 	            'payload': {
 	                type: 'schema',
+	                isRequired: true,
 	                options: {schema: createEmitPayloadSchema_v2021_06_23,}
 	            },
 	    }

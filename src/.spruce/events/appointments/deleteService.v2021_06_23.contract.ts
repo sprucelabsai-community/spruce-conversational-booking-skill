@@ -12,16 +12,31 @@ const deleteServiceEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.deleteServiceEmitPermissions',
 				name: 'Delete Service',
+				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-delete-service',
 						name: 'Can delete service',
+						description: null,
+						requireAllStatuses: null,
 						defaults: {
+							skill: null,
 							owner: {
 								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
 							},
+							groupManager: null,
+							manager: null,
+							teammate: null,
+							anonymous: null,
+							loggedIn: null,
+							guest: null,
 						},
+						can: null,
 					},
 				],
 			}),
