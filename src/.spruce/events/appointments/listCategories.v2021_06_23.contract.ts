@@ -12,20 +12,37 @@ const listCategoriesEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.listCategoriesEmitPermissions',
 				name: 'list categories',
+				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-list-categories',
 						name: 'Can list categories',
+						description: null,
+						requireAllStatuses: null,
 						defaults: {
-							loggedIn: {
-								default: true,
-							},
+							skill: true,
+							owner: null,
+							groupManager: null,
+							manager: null,
+							teammate: null,
 							anonymous: {
 								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
 							},
-							skill: true,
+							loggedIn: {
+								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
+							},
+							guest: null,
 						},
+						can: null,
 					},
 				],
 			}),
