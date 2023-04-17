@@ -12,16 +12,31 @@ const createCategoryEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.createCategoryEmitPermissions',
 				name: 'create category',
+				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-create-category',
 						name: 'Can create category',
+						description: null,
+						requireAllStatuses: null,
 						defaults: {
+							skill: null,
 							owner: {
 								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
 							},
+							groupManager: null,
+							manager: null,
+							teammate: null,
+							anonymous: null,
+							loggedIn: null,
+							guest: null,
 						},
+						can: null,
 					},
 				],
 			}),
