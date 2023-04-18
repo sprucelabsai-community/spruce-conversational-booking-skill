@@ -12,31 +12,17 @@ const updateOrganizationSettingsEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.updateOrganizationSettingsEmitPermissions',
 				name: 'update organization settings',
-				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-save-org-settings',
 						name: 'Can save org settings',
-						description: null,
-						requireAllStatuses: false,
 						defaults: {
-							skill: null,
 							owner: {
 								default: true,
-								clockedIn: null,
-								clockedOut: null,
-								onPrem: null,
-								offPrem: null,
 							},
-							groupManager: null,
-							manager: null,
-							teammate: null,
-							anonymous: null,
-							loggedIn: null,
-							guest: null,
 						},
-						can: null,
+						requireAllStatuses: false,
 					},
 				],
 			}),
