@@ -12,31 +12,17 @@ const listStatusesEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.listStatusesEmitPermissions',
 				name: 'List statuses',
-				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-list-statuses',
 						name: 'Can list statuses',
-						description: null,
-						requireAllStatuses: false,
 						defaults: {
-							skill: null,
-							owner: null,
-							groupManager: null,
-							manager: null,
-							teammate: null,
-							anonymous: null,
 							loggedIn: {
 								default: true,
-								clockedIn: null,
-								clockedOut: null,
-								onPrem: null,
-								offPrem: null,
 							},
-							guest: null,
 						},
-						can: null,
+						requireAllStatuses: false,
 					},
 				],
 			}),
