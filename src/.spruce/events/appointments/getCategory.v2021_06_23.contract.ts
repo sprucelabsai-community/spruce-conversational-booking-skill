@@ -12,22 +12,37 @@ const getCategoryEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.getCategoryEmitPermissions',
 				name: 'get category',
+				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-get-category',
 						name: 'Can give high five',
 						description: 'Will this person be allowed to high five?',
+						requireAllStatuses: false,
 						defaults: {
-							loggedIn: {
-								default: true,
-							},
+							skill: true,
+							owner: null,
+							groupManager: null,
+							manager: null,
+							teammate: null,
 							anonymous: {
 								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
 							},
-							skill: true,
+							loggedIn: {
+								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
+							},
+							guest: null,
 						},
-						requireAllStatuses: false,
+						can: null,
 					},
 				],
 			}),

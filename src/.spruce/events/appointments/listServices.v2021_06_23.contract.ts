@@ -12,20 +12,37 @@ const listServicesEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.listServicesEmitPermissions',
 				name: 'list services',
+				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-list-services',
 						name: 'Can list services',
+						description: null,
+						requireAllStatuses: null,
 						defaults: {
-							loggedIn: {
-								default: true,
-							},
+							skill: true,
+							owner: null,
+							groupManager: null,
+							manager: null,
+							teammate: null,
 							anonymous: {
 								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
 							},
-							skill: true,
+							loggedIn: {
+								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
+							},
+							guest: null,
 						},
+						can: null,
 					},
 				],
 			}),
