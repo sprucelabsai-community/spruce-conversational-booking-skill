@@ -15,6 +15,11 @@ const getOrganizationSettingsEmitTargetSchema: SpruceSchemas.Appointments.v2021_
 	                isRequired: true,
 	                options: undefined
 	            },
+	            /** . */
+	            'locationId': {
+	                type: 'id',
+	                options: undefined
+	            },
 	    }
 }
 

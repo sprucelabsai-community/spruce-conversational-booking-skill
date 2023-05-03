@@ -2427,6 +2427,8 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 			
 				
 				'organizationId': string
+				
+				'locationId'?: string| undefined | null
 		}
 
 		interface GetOrganizationSettingsEmitTargetSchema extends SpruceSchema.Schema {
@@ -2439,6 +2441,11 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 			            'organizationId': {
 			                type: 'id',
 			                isRequired: true,
+			                options: undefined
+			            },
+			            /** . */
+			            'locationId': {
+			                type: 'id',
 			                options: undefined
 			            },
 			    }
@@ -4238,6 +4245,8 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 			
 				
 				'organizationId': string
+				
+				'locationId'?: string| undefined | null
 		}
 
 		interface ListStatusesEmitTargetSchema extends SpruceSchema.Schema {
@@ -4250,6 +4259,11 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 			            'organizationId': {
 			                type: 'id',
 			                isRequired: true,
+			                options: undefined
+			            },
+			            /** . */
+			            'locationId': {
+			                type: 'id',
 			                options: undefined
 			            },
 			    }

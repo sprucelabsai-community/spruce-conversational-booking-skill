@@ -12,21 +12,37 @@ const getAvailableTimesEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.getAvailableTimesEmitPermissions',
 				name: 'get available times',
+				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-get-available-times',
 						name: 'Can available appointment times',
+						description: null,
+						requireAllStatuses: false,
 						defaults: {
-							loggedIn: {
-								default: true,
-							},
+							skill: true,
+							owner: null,
+							groupManager: null,
+							manager: null,
+							teammate: null,
 							anonymous: {
 								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
 							},
-							skill: true,
+							loggedIn: {
+								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
+							},
+							guest: null,
 						},
-						requireAllStatuses: false,
+						can: null,
 					},
 				],
 			}),

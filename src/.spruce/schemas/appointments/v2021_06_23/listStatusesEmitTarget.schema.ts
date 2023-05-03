@@ -15,6 +15,11 @@ const listStatusesEmitTargetSchema: SpruceSchemas.Appointments.v2021_06_23.ListS
 	                isRequired: true,
 	                options: undefined
 	            },
+	            /** . */
+	            'locationId': {
+	                type: 'id',
+	                options: undefined
+	            },
 	    }
 }
 
