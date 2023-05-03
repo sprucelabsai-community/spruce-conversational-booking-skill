@@ -12,16 +12,31 @@ const listRoleCapabilitiesEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.listRoleCapabilitiesEmitPermissions',
 				name: 'list role capabilities',
+				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-list-role-capabilities',
 						name: 'Can list role capabilities',
+						description: null,
+						requireAllStatuses: null,
 						defaults: {
+							skill: null,
 							owner: {
 								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
 							},
+							groupManager: null,
+							manager: null,
+							teammate: null,
+							anonymous: null,
+							loggedIn: null,
+							guest: null,
 						},
+						can: null,
 					},
 				],
 			}),
