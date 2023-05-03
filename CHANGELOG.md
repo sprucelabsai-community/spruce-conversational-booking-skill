@@ -1,3 +1,5 @@
+## [2.0.29](https://github.com/sprucelabsai-community/spruce-conversational-booking-skill/compare/v2.0.28...v2.0.29) (2023-05-03)
+
 ## [2.0.28](https://github.com/sprucelabsai-community/spruce-conversational-booking-skill/compare/v2.0.27...v2.0.28) (2023-05-02)
 
 ## [2.0.27](https://github.com/sprucelabsai-community/spruce-conversational-booking-skill/compare/v2.0.26...v2.0.27) (2023-05-01)
