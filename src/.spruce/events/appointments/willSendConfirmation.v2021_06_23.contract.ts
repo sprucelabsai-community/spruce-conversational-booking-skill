@@ -13,25 +13,15 @@ const willSendConfirmationEventContract = buildEventContract({
 			listenPermissionContract: buildPermissionContract({
 				id: 'appointments.willSendConfirmationListenPermissions',
 				name: 'Will send confirmation',
-				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-listen-to-will-send',
 						name: 'Can listen to will send',
-						description: null,
-						requireAllStatuses: false,
 						defaults: {
 							skill: true,
-							owner: null,
-							groupManager: null,
-							manager: null,
-							teammate: null,
-							anonymous: null,
-							loggedIn: null,
-							guest: null,
 						},
-						can: null,
+						requireAllStatuses: false,
 					},
 				],
 			}),
