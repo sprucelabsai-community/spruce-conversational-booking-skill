@@ -12,37 +12,19 @@ const updateCategoryEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.updateCategoryEmitPermissions',
 				name: 'edit category',
-				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-edit-category',
 						name: 'Can edit category',
-						description: null,
-						requireAllStatuses: null,
 						defaults: {
-							skill: null,
-							owner: null,
-							groupManager: null,
-							manager: null,
-							teammate: null,
-							anonymous: {
-								default: true,
-								clockedIn: null,
-								clockedOut: null,
-								onPrem: null,
-								offPrem: null,
-							},
 							loggedIn: {
 								default: true,
-								clockedIn: null,
-								clockedOut: null,
-								onPrem: null,
-								offPrem: null,
 							},
-							guest: null,
+							anonymous: {
+								default: true,
+							},
 						},
-						can: null,
 					},
 				],
 			}),
