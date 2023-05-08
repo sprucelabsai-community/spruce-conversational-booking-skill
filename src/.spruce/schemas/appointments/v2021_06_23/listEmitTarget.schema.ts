@@ -14,6 +14,11 @@ const listEmitTargetSchema: SpruceSchemas.Appointments.v2021_06_23.ListEmitTarge
 	                type: 'id',
 	                options: undefined
 	            },
+	            /** . */
+	            'guestId': {
+	                type: 'id',
+	                options: undefined
+	            },
 	    }
 }
 

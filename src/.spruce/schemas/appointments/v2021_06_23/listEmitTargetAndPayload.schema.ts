@@ -3,6 +3,7 @@ import { SpruceSchemas } from '../../schemas.types'
 
 import eventSourceSchema_v2021_09_13 from '#spruce/schemas/spruceEventUtils/v2021_09_13/eventSource.schema'
 import listEmitTargetSchema_v2021_06_23 from '#spruce/schemas/appointments/v2021_06_23/listEmitTarget.schema'
+import listEmitPayloadSchema_v2021_06_23 from '#spruce/schemas/appointments/v2021_06_23/listEmitPayload.schema'
 
 const listEmitTargetAndPayloadSchema: SpruceSchemas.Appointments.v2021_06_23.ListEmitTargetAndPayloadSchema  = {
 	id: 'listEmitTargetAndPayload',
@@ -20,6 +21,11 @@ const listEmitTargetAndPayloadSchema: SpruceSchemas.Appointments.v2021_06_23.Lis
 	            'target': {
 	                type: 'schema',
 	                options: {schema: listEmitTargetSchema_v2021_06_23,}
+	            },
+	            /** . */
+	            'payload': {
+	                type: 'schema',
+	                options: {schema: listEmitPayloadSchema_v2021_06_23,}
 	            },
 	    }
 }
