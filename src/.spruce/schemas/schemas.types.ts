@@ -2798,6 +2798,8 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 			
 				
 				'locationId'?: string| undefined | null
+				
+				'guestId'?: string| undefined | null
 		}
 
 		interface ListEmitTargetSchema extends SpruceSchema.Schema {
@@ -2808,6 +2810,11 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 			    fields: {
 			            /** . */
 			            'locationId': {
+			                type: 'id',
+			                options: undefined
+			            },
+			            /** . */
+			            'guestId': {
 			                type: 'id',
 			                options: undefined
 			            },
@@ -2822,12 +2829,49 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 	namespace SpruceSchemas.Appointments.v2021_06_23 {
 
 		
+		interface ListEmitPayload {
+			
+				
+				'afterDateTimeMs'?: SpruceSchema.DateTimeFieldValue| undefined | null
+				
+				'beforeDateTimeMs'?: SpruceSchema.DateTimeFieldValue| undefined | null
+		}
+
+		interface ListEmitPayloadSchema extends SpruceSchema.Schema {
+			id: 'listEmitPayload',
+			version: 'v2021_06_23',
+			namespace: 'Appointments',
+			name: '',
+			    fields: {
+			            /** . */
+			            'afterDateTimeMs': {
+			                type: 'dateTime',
+			                options: undefined
+			            },
+			            /** . */
+			            'beforeDateTimeMs': {
+			                type: 'dateTime',
+			                options: undefined
+			            },
+			    }
+		}
+
+		interface ListEmitPayloadEntity extends SchemaEntity<SpruceSchemas.Appointments.v2021_06_23.ListEmitPayloadSchema> {}
+
+	}
+
+
+	namespace SpruceSchemas.Appointments.v2021_06_23 {
+
+		
 		interface ListEmitTargetAndPayload {
 			
 				/** Source. */
 				'source'?: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSource| undefined | null
 				
 				'target'?: SpruceSchemas.Appointments.v2021_06_23.ListEmitTarget| undefined | null
+				
+				'payload'?: SpruceSchemas.Appointments.v2021_06_23.ListEmitPayload| undefined | null
 		}
 
 		interface ListEmitTargetAndPayloadSchema extends SpruceSchema.Schema {
@@ -2846,6 +2890,11 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 			            'target': {
 			                type: 'schema',
 			                options: {schema: SpruceSchemas.Appointments.v2021_06_23.ListEmitTargetSchema,}
+			            },
+			            /** . */
+			            'payload': {
+			                type: 'schema',
+			                options: {schema: SpruceSchemas.Appointments.v2021_06_23.ListEmitPayloadSchema,}
 			            },
 			    }
 		}
