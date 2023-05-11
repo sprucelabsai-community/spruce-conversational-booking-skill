@@ -19,6 +19,11 @@ const listEmitPayloadSchema: SpruceSchemas.Appointments.v2021_06_23.ListEmitPayl
 	                type: 'dateTime',
 	                options: undefined
 	            },
+	            /** . */
+	            'shouldSearchLocationWide': {
+	                type: 'boolean',
+	                options: undefined
+	            },
 	    }
 }
 
