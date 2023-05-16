@@ -29,9 +29,12 @@ import appointmentsDeleteCategoryEventContract_v2021_06_23, {
 import appointmentsDeleteServiceEventContract_v2021_06_23, {
 	DeleteServiceEventContract as AppointmentsDeleteServiceEventContract_v2021_06_23,
 } from '#spruce/events/appointments/deleteService.v2021_06_23.contract'
-import appointmentsDidBookAppointmentsEventContract_v2021_06_23, {
-	DidBookAppointmentsEventContract as AppointmentsDidBookAppointmentsEventContract_v2021_06_23,
-} from '#spruce/events/appointments/didBookAppointments.v2021_06_23.contract'
+import appointmentsDidBookEventContract_v2021_06_23, {
+	DidBookEventContract as AppointmentsDidBookEventContract_v2021_06_23,
+} from '#spruce/events/appointments/didBook.v2021_06_23.contract'
+import appointmentsDidUpdateEventContract_v2021_06_23, {
+	DidUpdateEventContract as AppointmentsDidUpdateEventContract_v2021_06_23,
+} from '#spruce/events/appointments/didUpdate.v2021_06_23.contract'
 import appointmentsGetEventContract_v2021_06_23, {
 	GetEventContract as AppointmentsGetEventContract_v2021_06_23,
 } from '#spruce/events/appointments/get.v2021_06_23.contract'
@@ -110,7 +113,8 @@ export default [
 	appointmentsCreateServiceEventContract_v2021_06_23,
 	appointmentsDeleteCategoryEventContract_v2021_06_23,
 	appointmentsDeleteServiceEventContract_v2021_06_23,
-	appointmentsDidBookAppointmentsEventContract_v2021_06_23,
+	appointmentsDidBookEventContract_v2021_06_23,
+	appointmentsDidUpdateEventContract_v2021_06_23,
 	appointmentsGetEventContract_v2021_06_23,
 	appointmentsGetAvailableTimesEventContract_v2021_06_23,
 	appointmentsGetCategoryEventContract_v2021_06_23,
@@ -158,7 +162,9 @@ declare module '@sprucelabs/mercury-types/build/types/mercury.types' {
 
 		'appointments.delete-service::v2021_06_23': AppointmentsDeleteServiceEventContract_v2021_06_23['eventSignatures']['appointments.delete-service::v2021_06_23']
 
-		'appointments.did-book-appointments::v2021_06_23': AppointmentsDidBookAppointmentsEventContract_v2021_06_23['eventSignatures']['appointments.did-book-appointments::v2021_06_23']
+		'appointments.did-book::v2021_06_23': AppointmentsDidBookEventContract_v2021_06_23['eventSignatures']['appointments.did-book::v2021_06_23']
+
+		'appointments.did-update::v2021_06_23': AppointmentsDidUpdateEventContract_v2021_06_23['eventSignatures']['appointments.did-update::v2021_06_23']
 
 		'appointments.get::v2021_06_23': AppointmentsGetEventContract_v2021_06_23['eventSignatures']['appointments.get::v2021_06_23']
 
