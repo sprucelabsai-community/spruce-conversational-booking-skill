@@ -63,6 +63,11 @@ const createServiceSchema: SpruceSchemas.Appointments.v2021_06_23.CreateServiceS
 	                type: 'image',
 	                options: undefined
 	            },
+	            /** . */
+	            'color': {
+	                type: 'text',
+	                options: undefined
+	            },
 	    }
 }
 

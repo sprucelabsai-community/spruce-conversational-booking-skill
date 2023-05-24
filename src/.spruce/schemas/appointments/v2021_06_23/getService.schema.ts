@@ -63,6 +63,11 @@ const getServiceSchema: SpruceSchemas.Appointments.v2021_06_23.GetServiceSchema 
 	                type: 'image',
 	                options: undefined
 	            },
+	            /** . */
+	            'color': {
+	                type: 'text',
+	                options: undefined
+	            },
 	    }
 }
 

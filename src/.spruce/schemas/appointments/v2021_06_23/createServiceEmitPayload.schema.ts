@@ -50,6 +50,11 @@ const createServiceEmitPayloadSchema: SpruceSchemas.Appointments.v2021_06_23.Cre
 	                type: 'image',
 	                options: undefined
 	            },
+	            /** . */
+	            'color': {
+	                type: 'text',
+	                options: undefined
+	            },
 	    }
 }
 

@@ -49,6 +49,11 @@ const updateServiceEmitPayloadSchema: SpruceSchemas.Appointments.v2021_06_23.Upd
 	                options: undefined
 	            },
 	            /** . */
+	            'color': {
+	                type: 'text',
+	                options: undefined
+	            },
+	            /** . */
 	            'addCategoryIds': {
 	                type: 'id',
 	                isArray: true,
