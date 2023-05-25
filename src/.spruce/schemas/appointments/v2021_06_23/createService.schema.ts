@@ -2,6 +2,7 @@ import { SchemaRegistry } from '@sprucelabs/schema'
 import { SpruceSchemas } from '../../schemas.types'
 
 import eventTimeBlockSchema_v2021_05_19 from '#spruce/schemas/calendarUtils/v2021_05_19/eventTimeBlock.schema'
+import serviceCalendarEventColorsSchema_v2021_06_23 from '#spruce/schemas/appointments/v2021_06_23/serviceCalendarEventColors.schema'
 
 const createServiceSchema: SpruceSchemas.Appointments.v2021_06_23.CreateServiceSchema  = {
 	id: 'createService',
@@ -64,9 +65,9 @@ const createServiceSchema: SpruceSchemas.Appointments.v2021_06_23.CreateServiceS
 	                options: undefined
 	            },
 	            /** . */
-	            'color': {
-	                type: 'text',
-	                options: undefined
+	            'calendarEventColors': {
+	                type: 'schema',
+	                options: {schema: serviceCalendarEventColorsSchema_v2021_06_23,}
 	            },
 	    }
 }
