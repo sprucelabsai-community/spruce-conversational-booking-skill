@@ -9,18 +9,18 @@ const serviceCalendarEventColorsSchema: SpruceSchemas.Appointments.v2021_06_23.S
 	namespace: 'Appointments',
 	name: '',
 	    fields: {
-	            /** Event color. This is the color that the event will be in your color! */
+	            /** Background color. This is the color used in the calendar whenever this service is booked. */
 	            'backgroundColor': {
-	                label: 'Event color',
+	                label: 'Background color',
 	                type: 'text',
-	                hint: 'This is the color that the event will be in your color!',
+	                hint: 'This is the color used in the calendar whenever this service is booked.',
 	                options: undefined
 	            },
-	            /** Text color. Make sure this color is readable on the background color! */
+	            /** Text color. Make sure this color is readable over the background color! */
 	            'foregroundColor': {
 	                label: 'Text color',
 	                type: 'text',
-	                hint: 'Make sure this color is readable on the background color!',
+	                hint: 'Make sure this color is readable over the background color!',
 	                options: undefined
 	            },
 	    }
