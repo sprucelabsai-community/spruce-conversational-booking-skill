@@ -2965,6 +2965,160 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 	namespace SpruceSchemas.Appointments.v2021_06_23 {
 
 		
+		interface GetServiceColorsEmitTarget {
+			
+				
+				'locationId': string
+		}
+
+		interface GetServiceColorsEmitTargetSchema extends SpruceSchema.Schema {
+			id: 'getServiceColorsEmitTarget',
+			version: 'v2021_06_23',
+			namespace: 'Appointments',
+			name: '',
+			    fields: {
+			            /** . */
+			            'locationId': {
+			                type: 'id',
+			                isRequired: true,
+			                options: undefined
+			            },
+			    }
+		}
+
+		interface GetServiceColorsEmitTargetEntity extends SchemaEntity<SpruceSchemas.Appointments.v2021_06_23.GetServiceColorsEmitTargetSchema> {}
+
+	}
+
+
+	namespace SpruceSchemas.Appointments.v2021_06_23 {
+
+		
+		interface GetServiceColorsEmitTargetAndPayload {
+			
+				/** Source. */
+				'source'?: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSource| undefined | null
+				
+				'target': SpruceSchemas.Appointments.v2021_06_23.GetServiceColorsEmitTarget
+		}
+
+		interface GetServiceColorsEmitTargetAndPayloadSchema extends SpruceSchema.Schema {
+			id: 'getServiceColorsEmitTargetAndPayload',
+			version: 'v2021_06_23',
+			namespace: 'Appointments',
+			name: '',
+			    fields: {
+			            /** Source. */
+			            'source': {
+			                label: 'Source',
+			                type: 'schema',
+			                options: {schema: SpruceSchemas.SpruceEventUtils.v2021_09_13.EventSourceSchema,}
+			            },
+			            /** . */
+			            'target': {
+			                type: 'schema',
+			                isRequired: true,
+			                options: {schema: SpruceSchemas.Appointments.v2021_06_23.GetServiceColorsEmitTargetSchema,}
+			            },
+			    }
+		}
+
+		interface GetServiceColorsEmitTargetAndPayloadEntity extends SchemaEntity<SpruceSchemas.Appointments.v2021_06_23.GetServiceColorsEmitTargetAndPayloadSchema> {}
+
+	}
+
+
+	namespace SpruceSchemas.Appointments.v2021_06_23 {
+
+		
+		interface GetServiceColorsResponsePayload {
+			
+				
+				'colorsByService': SpruceSchemas.Appointments.v2021_06_23.ColorsByService
+		}
+
+		interface GetServiceColorsResponsePayloadSchema extends SpruceSchema.Schema {
+			id: 'getServiceColorsResponsePayload',
+			version: 'v2021_06_23',
+			namespace: 'Appointments',
+			name: '',
+			    fields: {
+			            /** . */
+			            'colorsByService': {
+			                type: 'schema',
+			                isRequired: true,
+			                options: {schema: SpruceSchemas.Appointments.v2021_06_23.ColorsByServiceSchema,}
+			            },
+			    }
+		}
+
+		interface GetServiceColorsResponsePayloadEntity extends SchemaEntity<SpruceSchemas.Appointments.v2021_06_23.GetServiceColorsResponsePayloadSchema> {}
+
+	}
+
+
+	namespace SpruceSchemas.Appointments.v2021_06_23 {
+
+		
+		interface ServiceColors {
+			
+				
+				'backgroundColor'?: string| undefined | null
+				
+				'foregroundColor'?: string| undefined | null
+		}
+
+		interface ServiceColorsSchema extends SpruceSchema.Schema {
+			id: 'serviceColors',
+			version: 'v2021_06_23',
+			namespace: 'Appointments',
+			name: '',
+			    fields: {
+			            /** . */
+			            'backgroundColor': {
+			                type: 'text',
+			                options: undefined
+			            },
+			            /** . */
+			            'foregroundColor': {
+			                type: 'text',
+			                options: undefined
+			            },
+			    }
+		}
+
+		interface ServiceColorsEntity extends SchemaEntity<SpruceSchemas.Appointments.v2021_06_23.ServiceColorsSchema> {}
+
+	}
+
+
+	namespace SpruceSchemas.Appointments.v2021_06_23 {
+
+		
+		interface ColorsByService {
+				/** . */
+				[serviceId:string]: SpruceSchemas.Appointments.v2021_06_23.ServiceColors| undefined | null
+		}
+
+		interface ColorsByServiceSchema extends SpruceSchema.Schema {
+			id: 'colorsByService',
+			version: 'v2021_06_23',
+			namespace: 'Appointments',
+			name: '',
+			dynamicFieldSignature: { 
+			    type: 'schema',
+			    keyName: 'serviceId',
+			    options: {schema: SpruceSchemas.Appointments.v2021_06_23.ServiceColorsSchema,}
+			},		}
+
+		interface ColorsByServiceEntity extends SchemaEntity<SpruceSchemas.Appointments.v2021_06_23.ColorsByServiceSchema> {}
+
+	}
+
+
+	namespace SpruceSchemas.Appointments.v2021_06_23 {
+
+		
 		interface ListEmitTarget {
 			
 				
@@ -4281,6 +4435,37 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 	namespace SpruceSchemas.Appointments.v2021_06_23 {
 
 		
+		interface ListServicesWithProvidersResponsePayload {
+			
+				
+				'services': SpruceSchemas.Appointments.v2021_06_23.ServiceWithProviders[]
+		}
+
+		interface ListServicesWithProvidersResponsePayloadSchema extends SpruceSchema.Schema {
+			id: 'listServicesWithProvidersResponsePayload',
+			version: 'v2021_06_23',
+			namespace: 'Appointments',
+			name: '',
+			    fields: {
+			            /** . */
+			            'services': {
+			                type: 'schema',
+			                isRequired: true,
+			                isArray: true,
+			                minArrayLength: 0,
+			                options: {schema: SpruceSchemas.Appointments.v2021_06_23.ServiceWithProvidersSchema,}
+			            },
+			    }
+		}
+
+		interface ListServicesWithProvidersResponsePayloadEntity extends SchemaEntity<SpruceSchemas.Appointments.v2021_06_23.ListServicesWithProvidersResponsePayloadSchema> {}
+
+	}
+
+
+	namespace SpruceSchemas.Appointments.v2021_06_23 {
+
+		
 		interface ServiceWithProvidersProvider {
 			
 				
@@ -4437,37 +4622,6 @@ declare module '@sprucelabs/spruce-core-schemas/build/.spruce/schemas/core.schem
 		}
 
 		interface ServiceWithProvidersEntity extends SchemaEntity<SpruceSchemas.Appointments.v2021_06_23.ServiceWithProvidersSchema> {}
-
-	}
-
-
-	namespace SpruceSchemas.Appointments.v2021_06_23 {
-
-		
-		interface ListServicesWithProvidersResponsePayload {
-			
-				
-				'services': SpruceSchemas.Appointments.v2021_06_23.ServiceWithProviders[]
-		}
-
-		interface ListServicesWithProvidersResponsePayloadSchema extends SpruceSchema.Schema {
-			id: 'listServicesWithProvidersResponsePayload',
-			version: 'v2021_06_23',
-			namespace: 'Appointments',
-			name: '',
-			    fields: {
-			            /** . */
-			            'services': {
-			                type: 'schema',
-			                isRequired: true,
-			                isArray: true,
-			                minArrayLength: 0,
-			                options: {schema: SpruceSchemas.Appointments.v2021_06_23.ServiceWithProvidersSchema,}
-			            },
-			    }
-		}
-
-		interface ListServicesWithProvidersResponsePayloadEntity extends SchemaEntity<SpruceSchemas.Appointments.v2021_06_23.ListServicesWithProvidersResponsePayloadSchema> {}
 
 	}
 
