@@ -1,7 +1,7 @@
 {
   "name": "conversational-booking",
   "description": "With words!",
-  "version": "2.0.59",
+  "version": "2.0.60",
   "skill": {
     "namespace": "conversational-booking",
     "upgradeIgnoreList": []
