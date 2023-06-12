@@ -23,6 +23,13 @@ const updateOrganizationSettingsEmitPayloadSchema: SpruceSchemas.Appointments.v2
 	                isRequired: true,
 	                options: {choices: [{"label":"Every 15 minutes","value":"15"},{"label":"Every 30 minutes","value":"30"},{"label":"Every hour","value":"60"},{"label":"Custom","value":"custom"}],}
 	            },
+	            /** Require name to book. By default, a person only needs their number. Should I ask for their name too? */
+	            'shouldRequireNameToBook': {
+	                label: 'Require name to book',
+	                type: 'boolean',
+	                hint: 'By default, a person only needs their number. Should I ask for their name too?',
+	                options: undefined
+	            },
 	    }
 }
 
