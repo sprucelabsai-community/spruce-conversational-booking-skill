@@ -12,16 +12,31 @@ const listPeopleCapabilitiesEventContract = buildEventContract({
 			emitPermissionContract: buildPermissionContract({
 				id: 'appointments.listPeopleCapabilitiesEmitPermissions',
 				name: 'list people capabilities',
+				description: null,
 				requireAllPermissions: false,
 				permissions: [
 					{
 						id: 'can-list-people-capabilities',
 						name: 'Can list people capabilities',
+						description: null,
+						requireAllStatuses: null,
 						defaults: {
+							skill: null,
 							owner: {
 								default: true,
+								clockedIn: null,
+								clockedOut: null,
+								onPrem: null,
+								offPrem: null,
 							},
+							groupManager: null,
+							manager: null,
+							teammate: null,
+							anonymous: null,
+							loggedIn: null,
+							guest: null,
 						},
+						can: null,
 					},
 				],
 			}),
