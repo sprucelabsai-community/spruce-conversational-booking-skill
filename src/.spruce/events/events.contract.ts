@@ -38,6 +38,9 @@ import appointmentsDidUpdateEventContract_v2021_06_23, {
 import appointmentsGetEventContract_v2021_06_23, {
 	GetEventContract as AppointmentsGetEventContract_v2021_06_23,
 } from '#spruce/events/appointments/get.v2021_06_23.contract'
+import appointmentsGetAvailabilityForMonthEventContract_v2021_06_23, {
+	GetAvailabilityForMonthEventContract as AppointmentsGetAvailabilityForMonthEventContract_v2021_06_23,
+} from '#spruce/events/appointments/getAvailabilityForMonth.v2021_06_23.contract'
 import appointmentsGetAvailableTimesEventContract_v2021_06_23, {
 	GetAvailableTimesEventContract as AppointmentsGetAvailableTimesEventContract_v2021_06_23,
 } from '#spruce/events/appointments/getAvailableTimes.v2021_06_23.contract'
@@ -119,6 +122,7 @@ export default [
 	appointmentsDidBookEventContract_v2021_06_23,
 	appointmentsDidUpdateEventContract_v2021_06_23,
 	appointmentsGetEventContract_v2021_06_23,
+	appointmentsGetAvailabilityForMonthEventContract_v2021_06_23,
 	appointmentsGetAvailableTimesEventContract_v2021_06_23,
 	appointmentsGetCategoryEventContract_v2021_06_23,
 	appointmentsGetOrganizationSettingsEventContract_v2021_06_23,
@@ -171,6 +175,8 @@ declare module '@sprucelabs/mercury-types/build/types/mercury.types' {
 		'appointments.did-update::v2021_06_23': AppointmentsDidUpdateEventContract_v2021_06_23['eventSignatures']['appointments.did-update::v2021_06_23']
 
 		'appointments.get::v2021_06_23': AppointmentsGetEventContract_v2021_06_23['eventSignatures']['appointments.get::v2021_06_23']
+
+		'appointments.get-availability-for-month::v2021_06_23': AppointmentsGetAvailabilityForMonthEventContract_v2021_06_23['eventSignatures']['appointments.get-availability-for-month::v2021_06_23']
 
 		'appointments.get-available-times::v2021_06_23': AppointmentsGetAvailableTimesEventContract_v2021_06_23['eventSignatures']['appointments.get-available-times::v2021_06_23']
 
